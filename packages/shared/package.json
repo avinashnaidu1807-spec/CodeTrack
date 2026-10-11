@@ -1,0 +1,9 @@
+{
+  "name": "@codetrack/shared",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./platforms": "./src/platforms.js"
+  }
+}

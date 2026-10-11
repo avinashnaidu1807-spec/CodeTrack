@@ -1,0 +1,26 @@
+{
+  "name": "codetrack",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A competitive programming activity tracker",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev --workspace @codetrack/api\" \"npm run dev --workspace @codetrack/web\"",
+    "dev:api": "npm run dev --workspace @codetrack/api",
+    "dev:web": "npm run dev --workspace @codetrack/web",
+    "build": "npm run build --workspace @codetrack/web",
+    "start:api": "npm run start --workspace @codetrack/api",
+    "test:api": "node --test apps/api/src/utils/codeforces-normalizer.test.js apps/api/src/utils/leetcode-normalizer.test.js",
+    "test": "node --test apps/api/src/utils/codeforces-normalizer.test.js apps/api/src/utils/leetcode-normalizer.test.js apps/web/src/utils/activity-streak.test.js",
+    "test:web-utils": "node --test apps/web/src/utils/activity-streak.test.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
